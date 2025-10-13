@@ -1,5 +1,7 @@
 package com.nt.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,12 @@ public class DoctorMgmtServiceImpl implements IDoctorService {
 	public Long showDoctorsCount() {
 		long count = doctorRepo.count();
 		return count;
+	}
+
+	@Override
+	public Boolean isDoctorAvailable(Integer id) {
+		boolean byId = doctorRepo.existsById(id);
+		return byId;
 	}
 
 }

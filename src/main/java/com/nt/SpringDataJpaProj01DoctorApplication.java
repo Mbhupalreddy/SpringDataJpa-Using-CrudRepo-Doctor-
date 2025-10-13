@@ -17,7 +17,7 @@ public class SpringDataJpaProj01DoctorApplication {
 		try(ConfigurableApplicationContext ctx=SpringApplication.run(SpringDataJpaProj01DoctorApplication.class, args);){
 		//get service class obj
 		IDoctorService service = ctx.getBean("doctorService",IDoctorService.class);
-		
+		// insert the records by using save
 		/*try {
 			//create Doctor class object
 			Doctor doc = new Doctor();
@@ -31,6 +31,7 @@ public class SpringDataJpaProj01DoctorApplication {
 		catch(Exception e) {
 			e.printStackTrace();
 		}*/
+		//by using the count method
 		try {
 			 
 			System.out.println( "Doctors Count::"+service.showDoctorsCount());
@@ -38,6 +39,20 @@ public class SpringDataJpaProj01DoctorApplication {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		//is checking the doctor by existbyid
+		try {
+			Boolean flag = service.isDoctorAvailable(101);
+			if(flag==true) {
+				System.err.println("*****************Doctor is available***********");
+			}
+			else {
+				System.err.println("Doctor is Not-available");
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	}
 }
