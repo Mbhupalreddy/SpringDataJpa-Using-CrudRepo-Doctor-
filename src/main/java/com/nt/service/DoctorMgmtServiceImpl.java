@@ -40,5 +40,13 @@ public class DoctorMgmtServiceImpl implements IDoctorService {
 		List<Integer> ids = StreamSupport.stream(saveDoc.spliterator(), false).map(Doctor::getDocid).collect(Collectors.toList());
 	    return ids.size()+"no.of Doctors are registered having the idvalues"+ids;
 	}
+/*   findbyId(),  																				*/
+	@Override
+	public Doctor showDoctorById(Integer id) {
+//		Doctor dutydoc=new Doctor();
+//		dutydoc.setSpecialization("heart");
+		Doctor doctor = doctorRepo.findById(id).orElseThrow(()-> new IllegalArgumentException("Invalid data"));
+		return doctor;
+	}
 
 }

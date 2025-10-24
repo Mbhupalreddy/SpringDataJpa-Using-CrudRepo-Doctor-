@@ -9,4 +9,7 @@ public interface IDoctorService {
 	public Long showDoctorsCount();
 	public Boolean isDoctorAvailable(Integer id);
 	public String registerDoctorsBatch(List<Doctor> list);
+	
+	//finder methods and update operations findbyId()
+	public Doctor showDoctorById(Integer id);
 }

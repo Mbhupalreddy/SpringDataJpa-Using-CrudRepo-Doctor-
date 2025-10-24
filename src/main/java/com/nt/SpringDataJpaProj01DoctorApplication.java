@@ -61,7 +61,7 @@ public class SpringDataJpaProj01DoctorApplication {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}*/
-		
+		/* here we used List<T> then we insert many
 		Doctor doc1= new Doctor("mahesh", "heart", 150000.00);
 		Doctor doc2= new Doctor("Ramesh", "kidney", 100000.00);
 		Doctor doc3= new Doctor("vignesh", "urine", 125000.00);
@@ -71,6 +71,14 @@ public class SpringDataJpaProj01DoctorApplication {
 		try {
 			String registerDoctor = service.registerDoctorsBatch(list);
 			System.out.println(registerDoctor);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}*/
+		
+		try {
+			System.out.println(service.showDoctorById(9)); 
+			
 		}
 		catch(Exception e) {
 			e.printStackTrace();
