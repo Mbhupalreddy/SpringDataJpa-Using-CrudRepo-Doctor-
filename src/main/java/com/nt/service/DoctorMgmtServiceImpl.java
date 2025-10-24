@@ -1,6 +1,8 @@
 package com.nt.service;
 
-import java.util.Optional;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,13 @@ public class DoctorMgmtServiceImpl implements IDoctorService {
 	public Boolean isDoctorAvailable(Integer id) {
 		boolean byId = doctorRepo.existsById(id);
 		return byId;
+	}
+
+	@Override
+	public String registerDoctorsBatch(List<Doctor> list) {
+		Iterable<Doctor> saveDoc = doctorRepo.saveAll(list);
+		List<Integer> ids = StreamSupport.stream(saveDoc.spliterator(), false).map(Doctor::getDocid).collect(Collectors.toList());
+	    return ids.size()+"no.of Doctors are registered having the idvalues"+ids;
 	}
 
 }

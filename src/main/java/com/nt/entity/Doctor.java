@@ -6,11 +6,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="JPA_DOCTOR_INFO")
 @Data
+//@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class Doctor {
 	@Column(name="DOC_ID")
 	@Id
@@ -24,5 +29,15 @@ public class Doctor {
 	private String specialization;
 	@Column(name="INCOME")
 	private Double income;
+	public Doctor(String docname, String specialization, Double income) {
+		super();
+		this.docname = docname;
+		this.specialization = specialization;
+		this.income = income;
+	}
+	
+	
+	
+	
 
 }

@@ -1,5 +1,7 @@
 package com.nt;
 
+import java.util.List;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -10,6 +12,13 @@ import com.nt.service.IDoctorService;
 
 @SpringBootApplication
 public class SpringDataJpaProj01DoctorApplication {
+
+    private final DoctorMgmtServiceImpl doctorService;
+
+
+    SpringDataJpaProj01DoctorApplication(DoctorMgmtServiceImpl doctorService) {
+        this.doctorService = doctorService;
+    }
 
    
 
@@ -32,7 +41,7 @@ public class SpringDataJpaProj01DoctorApplication {
 			e.printStackTrace();
 		}*/
 		//by using the count method
-		try {
+		/*try {
 			 
 			System.out.println( "Doctors Count::"+service.showDoctorsCount());
 		}
@@ -41,7 +50,7 @@ public class SpringDataJpaProj01DoctorApplication {
 		}
 		//is checking the doctor by existbyid
 		try {
-			Boolean flag = service.isDoctorAvailable(101);
+			Boolean flag = service.isDoctorAvailable(1);
 			if(flag==true) {
 				System.err.println("*****************Doctor is available***********");
 			}
@@ -51,8 +60,21 @@ public class SpringDataJpaProj01DoctorApplication {
 			
 		}catch(Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 		
+		Doctor doc1= new Doctor("mahesh", "heart", 150000.00);
+		Doctor doc2= new Doctor("Ramesh", "kidney", 100000.00);
+		Doctor doc3= new Doctor("vignesh", "urine", 125000.00);
+		
+		List<Doctor> list = List.of(doc1,doc2,doc3);
+		
+		try {
+			String registerDoctor = service.registerDoctorsBatch(list);
+			System.out.println(registerDoctor);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	}
 }
