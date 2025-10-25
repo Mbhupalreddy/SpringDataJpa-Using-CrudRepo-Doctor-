@@ -23,4 +23,8 @@ public interface IDoctorService {
 	public String deleteDoctorbyId(Integer id);
 	//delete
 	public  String deleteDoctorAllEntity(Doctor doctor);
+	//deleteAll
+	public String removeAllDoctors();
+	//deleteAllByIds(Iterable<Integer> id)
+	public String removeAllDoctorsByIds(Iterable<Integer> ids);
 }

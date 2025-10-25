@@ -96,4 +96,23 @@ public class DoctorMgmtServiceImpl implements IDoctorService {
 		}
 	}
 
+	@Override
+	public String removeAllDoctors() {
+		long count = doctorRepo.count();
+		if(count>0) {
+			doctorRepo.deleteAll();
+			return " No of Records are found and deleted!!  "+count;
+		}
+		return " NOOO Records found and  not deleted!!  "+count;
+	}
+
+	@Override
+	public String removeAllDoctorsByIds(Iterable<Integer> ids) {
+		Iterable<Doctor> list = doctorRepo.findAllById(ids);
+		long count = StreamSupport.stream(list.spliterator(), false).count();
+		//delete the records
+		doctorRepo.deleteAllById(ids);
+		return "deleted ids  "+count;
+	}
+
 }

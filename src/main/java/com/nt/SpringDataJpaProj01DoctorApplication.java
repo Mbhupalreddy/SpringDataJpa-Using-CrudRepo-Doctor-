@@ -120,12 +120,26 @@ public class SpringDataJpaProj01DoctorApplication {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}*/
-		/*delete(Entity)*/
+		/*delete(Entity)
 		try {
 			Doctor doc = new Doctor();
 			doc.setDocid(4);doc.setDocname("durga");
 			System.err.println(service.deleteDoctorAllEntity(doc));
 			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}*/
+		
+		/* deleteAll operations in CrudRepository
+		try {
+			System.err.println(service.removeAllDoctors()+"\n");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}*/
+		/**/
+		try {
+			System.err.println(service.removeAllDoctorsByIds(List.of(1,2,3)));
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
