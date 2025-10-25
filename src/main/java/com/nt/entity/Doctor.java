@@ -21,7 +21,7 @@ public class Doctor {
 	@Id
 	//@SequenceGenerator(name="gen1",sequenceName = "DNo_SEQ",initialValue = 100,allocationSize = 1)
 	//@GeneratedValue(generator = "gen1",strategy = GenerationType.SEQUENCE)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer docid;
 	@Column(name="DOC_NAME",length=25)
 	private String docname;

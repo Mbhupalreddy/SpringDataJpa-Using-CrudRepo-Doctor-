@@ -1,6 +1,7 @@
 package com.nt;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -76,11 +77,56 @@ public class SpringDataJpaProj01DoctorApplication {
 			e.printStackTrace();
 		}*/
 		
-		try {
+		/*try {
 			System.out.println(service.showDoctorById(9)); 
 			
 		}
 		catch(Exception e) {
+			e.printStackTrace();
+		}*/
+		
+		/*-----making find by id
+		try {
+			Optional<Doctor> opt = service.getDoctorId(4);
+			if(opt.isPresent())
+			System.err.println("Option  Doctor is found::"+opt.get());
+			else
+				System.out.println("Optional  Doctor is not found");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		*/
+		/*Update or save operations
+		try {
+			Doctor doc= new Doctor();
+			doc.setDocid(2);doc.setDocname("arundathi");doc.setSpecialization("Star");doc.setIncome(1500020.00);
+			System.out.println(service.registerDoctorOrUpdate(doc));
+		}catch(Exception e) {
+		e.printStackTrace();	
+		}*/
+		/* Partial updation 
+		try {
+			String msg = service.updateDoctorSpecialization(10, "skyeye");
+			System.err.println(msg);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}*/
+		/*delete ooperation 
+		try {
+			System.err.println(service.deleteDoctorbyId(1));
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}*/
+		/*delete(Entity)*/
+		try {
+			Doctor doc = new Doctor();
+			doc.setDocid(4);doc.setDocname("durga");
+			System.err.println(service.deleteDoctorAllEntity(doc));
+			
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
